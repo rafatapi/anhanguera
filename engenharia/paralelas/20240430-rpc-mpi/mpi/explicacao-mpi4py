@@ -45,3 +45,46 @@ if rank == 0:
 Neste exemplo, todos os processos enviam seu rank para o processo raiz (rank 0), que faz a soma de todos os ranks e imprime na tela.
 
 Esses são apenas alguns exemplos básicos da biblioteca mpi4py.MPI. Com o MPI, é possível criar programas paralelos e distribuídos de forma eficiente e escalável. Experimente explorar a documentação da biblioteca para conhecer mais recursos e funcionalidades.
+
+4. Comunicação ponto a ponto:
+Além das funções send e recv, podemos utilizar as funções sendrecv e sendrecv_replace para realizar comunicação ponto a ponto entre processos:
+
+```python
+send_data = rank * 10
+recv_data = comm.sendrecv(send_data, dest=1, source=1)
+print(f"Processo {rank}: Enviei {send_data} e recebi {recv_data}")
+```
+
+Neste exemplo, o processo envia um dado para o processo 1 e recebe um dado de volta.
+
+5. Scatter e Gather:
+As funções scatter e gather permitem distribuir e coletar dados entre processos de forma eficiente:
+
+```python
+data = None
+if rank == 0:
+    data = list(range(20))
+
+local_data = comm.scatter(data, root=0)
+sum_local = sum(local_data)
+global_sum = comm.reduce(sum_local, op=MPI.SUM, root=0)
+
+if rank == 0:
+    print(f"A soma de todos os elementos é {global_sum}")
+```
+
+Neste exemplo, o processo raiz (rank 0) distribui uma lista de números para todos os processos, e cada processo calcula a soma dos números locais. Em seguida, o processo raiz coleta as somas locais de volta e calcula a soma total.
+
+6. Comando Barreira:
+A função barrier pode ser utilizada para sincronizar todos os processos em um ponto específico do código:
+
+```python
+comm.barrier()
+print(f"Processo {rank} chegou na barreira")
+comm.barrier()
+print(f"Processo {rank} saiu da barreira")
+```
+
+Neste exemplo, todos os processos devem chegar à barreira antes de continuar a execução do código.
+
+Esses são apenas mais alguns exemplos de comandos e funcionalidades da biblioteca mpi4py.MPI. Com essas ferramentas, é possível criar programas paralelos e distribuídos mais robustos e eficientes. Explore a documentação da biblioteca e experimente implementar seus próprios programas paralelos utilizando o MPI.
