@@ -1,0 +1,2 @@
+# python -m ensurepip        : garante que o pip esteja disponível para toda a versão do Python.
+# python -m ensurepip --user : garante que o pip esteja disponível apenas para o seu usuário.

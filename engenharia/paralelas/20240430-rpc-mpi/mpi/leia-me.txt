@@ -1,0 +1,3 @@
+https://www.microsoft.com/en-us/download/details.aspx?id=57467
+
+mpiexec -n 2 python D:\git-gcp\paralelo\20240430\mpi-1.py
