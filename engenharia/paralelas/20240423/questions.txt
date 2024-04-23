@@ -1,0 +1,31 @@
+1. O que é um mutex?
+a) Um tipo de semáforo
+b) Uma variável de controle de acesso para recursos compartilhados
+c) Um tipo de processo concorrente
+d) Uma estrutura de dados para armazenar informações
+
+Resposta correta: b) Uma variável de controle de acesso para recursos compartilhados
+
+2. Qual é a principal função de um semáforo?
+a) Gerenciar a memória do sistema
+b) Controlar o acesso concorrente a recursos compartilhados
+c) Realizar operações matemáticas
+d) Monitorar a atividade de rede
+
+Resposta correta: b) Controlar o acesso concorrente a recursos compartilhados
+
+3. Qual é a diferença entre mutex e semáforo?
+a) Mutex é mais eficiente que semáforo
+b) Semáforo pode ter um valor maior que 1, enquanto mutex é sempre binário
+c) Mutex só pode ser utilizado por um processo por vez, enquanto semáforo pode ser utilizado por vários processos
+d) Mutex não é utilizado em sistemas operacionais, apenas semáforo
+
+Resposta correta: b) Semáforo pode ter um valor maior que 1, enquanto mutex é sempre binário
+
+4. Qual é a principal aplicação de mutex e semáforos?
+a) Acesso a dados na memória secundária
+b) Controle de acesso a arquivos
+c) Sincronização de processos concorrentes
+d) Monitoramento de temperatura do sistema
+
+Resposta correta: c) Sincronização de processos concorrentes

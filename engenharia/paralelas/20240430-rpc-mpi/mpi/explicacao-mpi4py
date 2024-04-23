@@ -1,0 +1,47 @@
+A biblioteca mpi4py.MPI é uma interface Python para o MPI (Message Passing Interface), que é um padrão de comunicação entre processos em sistemas distribuídos e paralelos. Com o MPI, é possível criar programas que se comunicam entre si para realizar tarefas de forma distribuída.
+
+Vamos ver alguns conceitos básicos da biblioteca mpi4py.MPI e alguns exemplos dos principais comandos:
+
+1. Iniciar e finalizar o MPI:
+Para iniciar o MPI e obter informações sobre o ambiente de execução, utilizamos o seguinte comando:
+
+```python
+from mpi4py import MPI
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+size = comm.Get_size()
+
+print(f"Olá do processo {rank} de um total de {size}")
+```
+
+Neste exemplo, o programa é executado por vários processos, e cada processo recebe um identificador (rank) que vai de 0 a size-1.
+
+2. Comunicação entre processos:
+Para enviar dados entre processos, utilizamos as funções send e recv:
+
+```python
+if rank == 0:
+    data = {"mensagem": "Olá, processo 1"}
+    comm.send(data, dest=1)
+    
+if rank == 1:
+    data = comm.recv(source=0)
+    print(data["mensagem"])
+```
+
+Neste exemplo, o processo 0 envia uma mensagem para o processo 1, que a recebe e imprime na tela.
+
+3. Operações de redução:
+Podemos realizar operações de redução, como soma, mínimo e máximo, entre os processos utilizando a função reduce:
+
+```python
+result = comm.reduce(rank, op=MPI.SUM, root=0)
+
+if rank == 0:
+    print(f"A soma de todos os ranks é {result}")
+```
+
+Neste exemplo, todos os processos enviam seu rank para o processo raiz (rank 0), que faz a soma de todos os ranks e imprime na tela.
+
+Esses são apenas alguns exemplos básicos da biblioteca mpi4py.MPI. Com o MPI, é possível criar programas paralelos e distribuídos de forma eficiente e escalável. Experimente explorar a documentação da biblioteca para conhecer mais recursos e funcionalidades.

@@ -1,0 +1,38 @@
+Aula: Introdução a RPC em Python
+
+RPC (Remote Procedure Call) é um protocolo que permite a um programa chamar funções ou métodos em um computador
+remoto através de uma rede. Em Python, existem várias bibliotecas que permitem a implementação de RPC, como por
+exemplo o Pyro4, o Pyro e o XML-RPC.
+
+Tipos de RPC em Python:
+
+1. Pyro4: É uma biblioteca que permite a comunicação remota entre objetos Python de forma transparente. Ela utiliza
+o conceito de objetos distribuídos para permitir que métodos de objetos remotos possam ser chamados como se fossem
+locais.
+
+2. Pyro: Pyro é uma biblioteca que permite a comunicação remota em Python através da serialização de objetos e troca
+de mensagens. Ela utiliza um mecanismo de proxy para representar objetos remotos e facilitar a chamada de métodos
+remotos.
+
+3. XML-RPC: É um protocolo de comunicação remota baseado em XML, que permite a chamada de funções ou métodos em um
+servidor remoto. Em Python, a biblioteca xmlrpc.client permite a comunicação com servidores XML-RPC.
+
+Conceitos básicos de RPC em Python:
+
+1. Servidor RPC: É um programa que disponibiliza funções ou métodos para serem chamados remotamente por clientes. O
+servidor RPC fica em execução em um computador remoto e aguarda as chamadas dos clientes.
+
+2. Cliente RPC: É um programa que chama funções ou métodos em um servidor remoto através de uma rede. O cliente RPC
+envia mensagens para o servidor com os parâmetros da função a ser chamada e recebe o resultado de volta.
+
+3. Interface RPC: Define os procedimentos que podem ser chamados remotamente pelo cliente. A interface RPC geralmente
+é definida através de um contrato ou IDL (Interface Description Language) que descreve os métodos disponíveis, seus
+parâmetros e seus tipos de retorno.
+
+4. Serialização de dados: Para que os dados possam ser transmitidos pela rede, eles precisam ser convertidos em um
+formato que possa ser transmitido, como por exemplo JSON, XML ou pickle. A serialização de dados é importante para
+garantir a integridade e consistência das informações transmitidas entre cliente e servidor.
+
+5. Proxy: Um proxy é um objeto remoto que representa um objeto no servidor e permite a chamada de métodos remotos como
+se fossem locais. O proxy é responsável por enviar as mensagens para o servidor e receber os resultados de volta.
+
