@@ -1,0 +1,17 @@
+Dnt=1
+Sec-Ch-Ua="Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"
+Sec-Ch-Ua-Platform="Windows"
+:path=/image.aspx?accountid=6032860&ourl=https%3A%2F%2Fwww.bls.gov%2Fschedule%2Fnews_release%2Fbls.ics&ref=https%3A%2F%2Fwww.bls.gov%2Fschedule%2Fnews_release%2Fppi.htm&autoonclick=1&prev=35f3438f-9210-9903-9f97-dec948d24824&rnd=83411
+Sec-Ch-Ua-Mobile=?0
+:authority=6032860.global.siteimproveanalytics.io
+Sec-Fetch-Site=cross-site
+:method=GET
+Accept-Encoding=gzip, deflate, br, zstd
+:scheme=https
+Referer=https://www.bls.gov/
+Priority=i
+Sec-Fetch-Dest=image
+Accept=image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Sec-Fetch-Mode=no-cors
+Accept-Language=pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7
