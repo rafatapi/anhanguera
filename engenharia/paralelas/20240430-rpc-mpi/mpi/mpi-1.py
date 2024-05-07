@@ -6,7 +6,6 @@
 from mpi4py import MPI
 import numpy as np
 
-
 # ------------------------------------------------------------------------------------
 # 2. Definição de comunicação: 
 # 	É criado um comunicador MPI (`comm`) para gerenciar a comunicação entre os processos. 
@@ -20,12 +19,13 @@ size = comm.Get_size()
 
 # ------------------------------------------------------------------------------------
 # 3. Definição do array: 
-# 	Um array NumPy de tamanho 10 (variável `N`) 
-# 	é criado com valores de 0 a 9 (array = np.arange(10)).
+# 	Um array NumPy de tamanho 100 (variável `N`) 
+# 	é criado com valores de 0 a 99 (array = np.arange(100)).
 # ------------------------------------------------------------------------------------
 # Definindo o tamanho do array
 N = 100
 array = np.arange(N)
+print(f"Array original: {array}")
 
 # ------------------------------------------------------------------------------------
 # 4. Divisão do array entre os processos: 
@@ -36,6 +36,7 @@ array = np.arange(N)
 # Dividindo o array entre os processos
 local_array = np.zeros(N//size, dtype=int)  # Inicializa um array local vazio para cada processo
 comm.Scatter(array, local_array, root=0)  # Divide o array original entre os processos
+print(f"Array local do processo {rank}: {local_array}")
 
 # ------------------------------------------------------------------------------------
 # 5. Soma local: 
@@ -44,6 +45,7 @@ comm.Scatter(array, local_array, root=0)  # Divide o array original entre os pro
 # ------------------------------------------------------------------------------------
 # Realizando a soma localmente
 local_sum = np.sum(local_array)  # Calcula a soma dos elementos no array local
+print(f"Soma local do processo {rank}: {local_sum}")
 
 
 # ------------------------------------------------------------------------------------
@@ -55,6 +57,7 @@ local_sum = np.sum(local_array)  # Calcula a soma dos elementos no array local
 # ------------------------------------------------------------------------------------
 # Reduz as somas locais para o processo raiz
 total_sum = comm.reduce(local_sum, op=MPI.SUM, root=0) 
+print(f"Soma total após a redução: {total_sum}")
 
 
 # ------------------------------------------------------------------------------------
