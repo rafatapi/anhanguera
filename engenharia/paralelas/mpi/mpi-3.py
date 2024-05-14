@@ -5,6 +5,7 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
 
+
 # Envio e recebimento de mensagens entre processos
 if rank == 0:
     data = {'message': "Hello from process 0!"}

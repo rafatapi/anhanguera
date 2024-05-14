@@ -18,6 +18,7 @@ count = np.sum(np.linalg.norm(points, axis=1) < 1)
 # Reduzindo a contagem de pontos dentro do círculo entre todos os processos
 total_count = comm.reduce(count, op=MPI.SUM, root=0)
 
+# ------------------------------------------------------------------------------------
 if rank == 0:
 	pi_estimate = 4 * total_count / (N * size)
 	print("Estimativa de Pi:", pi_estimate)
